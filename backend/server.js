@@ -25,7 +25,10 @@ app.get("/", (req,res)=>{
 
 //importing routes
 import authRoutes from "./routes/auth.routes.js"
+import messageRoute from "./routes/message.routes.js"
+
 app.use("/api/auth", authRoutes)
+app.use("/api/messages", messageRoute)
 
 app.listen(PORT, ()=>{
     console.log("Server is running at port: " + PORT)
