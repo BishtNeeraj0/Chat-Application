@@ -1,7 +1,7 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
 
-export const sendMessage = async (req, resizeBy, next) => {
+export const sendMessage = async (req, res, next) => {
   try {
     const { message } = req.body;
     const { id: receiverID } = req.params;
@@ -30,6 +30,26 @@ export const sendMessage = async (req, resizeBy, next) => {
     await Promise.all([conversation.save(), newMessage.save()]);
 
     resizeBy.status(201).json(newMessage);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getMessage = async (req, res, next) => {
+  try {
+    const { id: receiverID } = req.params;
+    const senderID = req.user.id;
+
+    const conversation = await Conversation.findOne({
+      participants: { $all: [senderID, receiverID] },
+    }).populate("messages");
+
+    if (!conversation) {
+      return res.status(200).json([]);
+    }
+
+    const messages = conversation.messages;
+    res.status(200).json(messages);
   } catch (error) {
     next(error);
   }
