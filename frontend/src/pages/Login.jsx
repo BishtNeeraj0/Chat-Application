@@ -7,7 +7,7 @@ const Login = () => {
       <div className="w-full max-w-md p-6 rounded-lg shadow-md bg-gray-200">
         <h1 className="text-3xl font-semibold text-center text-slate-700">
           Login to
-          <span className="text-blue-700">Chat Application</span>
+          <span className="text-blue-700"> Chat Application</span>
         </h1>
         <form>
           <div>
