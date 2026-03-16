@@ -17,7 +17,7 @@ export const signup = async (req, res, next) => {
   }
 
   const hashedPass = await bcrypt.hash(password, 10);
-  const pfp = `https://api.dicebear.com/9.x/initials/svg?seed=${username}`;
+  const pfp = `https://api.dicebear.com/9.x/personas/svg?seed=${username}&backgroundColor=random`;
   const newUser = new User({
     username,
     email,
@@ -48,21 +48,18 @@ export const login = async (req, res, next) => {
     if (!validUser) {
       return next(errorHandler(404, "User not found."));
     }
-    const validPassword = bcrypt.compareSync(
-      password,
-      validUser.password,
-    );
+    const validPassword = bcrypt.compareSync(password, validUser.password);
     if (!validPassword) {
       return next(errorHandler(401, "Wrong password."));
     }
 
-    const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET)
-    res.cookie("access_token", token, {httpOnly: true}).status(200).json({
+    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+    res.cookie("access_token", token, { httpOnly: true }).status(200).json({
       _id: validUser._id,
       username: validUser.username,
       email: validUser.email,
       pfp: validUser.pfp,
-    })
+    });
   } catch (error) {
     next(error);
   }
@@ -71,11 +68,11 @@ export const login = async (req, res, next) => {
 //logout
 export const logout = (req, res, next) => {
   try {
-    res.clearCookie("access_token")
+    res.clearCookie("access_token");
     res.status(200).json({
-      message: "Successfully logged out!!"
-    })
+      message: "Successfully logged out!!",
+    });
   } catch (error) {
-    next(error)
+    next(error);
   }
 };

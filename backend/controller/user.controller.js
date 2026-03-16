@@ -13,4 +13,3 @@ export const getUserForSidebar = async (req, res, next) => {
     next(error);
   }
 };
- 
