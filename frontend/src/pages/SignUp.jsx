@@ -6,23 +6,23 @@ import useSignup from "../hooks/useSignup.js";
 const SignUp = () => {
   const [formData, setFormData] = useState({
     username: "",
-    email:"",
+    email: "",
     password: "",
     confirmPassword: "",
     gender: "",
   });
 
-  const {loading,signup} = useSignup()
+  const { loading, signup } = useSignup();
 
   const handleCheckboxChange = (gender) => {
     setFormData({ ...formData, gender });
   };
 
-  const handleSubmit= async(e)=>{
-    e.preventDefault() 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    await signup(formData)
-  }
+    await signup(formData);
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center mx-auto">
@@ -100,8 +100,15 @@ const SignUp = () => {
             Already have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2 bg-blue-700 font-bold text-white">
-              SignUp
+            <button
+              className="btn btn-block btn-sm mt-2 bg-blue-700 font-bold text-white"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign up"
+              )}
             </button>
           </div>
         </form>
