@@ -10,7 +10,9 @@ const useGetConversations = () => {
       try {
         setLoading(true);
 
-        const res = await fetch("/api/users");
+        const res = await fetch("/api/users", {
+          credentials: "include",
+        });
 
         const data = await res.json();
 
@@ -18,7 +20,7 @@ const useGetConversations = () => {
           throw new Error(data.error);
         }
 
-        setConversations(data);
+        setConversations(Array.isArray(data) ? data : []);
       } catch (error) {
         toast.error(error.messages);
       } finally {

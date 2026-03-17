@@ -11,7 +11,7 @@ const Conversations = () => {
         <Conversation
           key={conversation._id}
           conversation={conversation}
-          lastIndex={index === conversation.length - 1}
+          lastIndex={index === conversations.length - 1}
         />
       ))}
       {loading ? <span className="loading loading-spinner"></span> : null}
