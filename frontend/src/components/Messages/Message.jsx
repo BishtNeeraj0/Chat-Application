@@ -1,17 +1,37 @@
 import React from "react";
 import UserAvatar from "../../assets/user.png";
+import { useAuthContext } from "../../Context/AuthContext";
+import useConversation from "../../zustand/useConversation";
+import { formatTime } from "../../utils/formatTime";
 
-const Message = () => {
+const Message = ({ message }) => {
+  const { authUser } = useAuthContext();
+
+  const { selectedConversation } = useConversation();
+
+  const messageFromMe = message.sender === authUser._id;
+
+  const chatClassName = messageFromMe ? "chat-end" : "chat-start";
+
+  const profilePic = messageFromMe ? authUser.pfp : selectedConversation?.pfp;
+
+  const msgBgColor = messageFromMe ? "bg-green-500" : "";
+  const formattedTime = formatTime(message.createdAt);
+
   return (
-    <div className="chat chat-end">
+    <div className={`chat ${chatClassName}`}>
       <div className="chat-image avatar">
         <div className="w-10 rounded-full">
-          <img src={UserAvatar} alt="user-avatar" />
+          <img src={profilePic || UserAvatar} alt="user" />
         </div>
       </div>
-      <div className="chat-bubble text-white bg-blue-500">Hello</div>
-      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center text-slate-950">
-        10:41
+
+      <div className={`chat-bubble text-white ${msgBgColor}`}>
+        {message.message}
+      </div>
+
+      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
+        {formattedTime}
       </div>
     </div>
   );
