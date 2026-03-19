@@ -15,7 +15,9 @@ const Message = ({ message }) => {
 
   const profilePic = messageFromMe ? authUser.pfp : selectedConversation?.pfp;
 
-  const msgBgColor = messageFromMe ? "bg-green-500" : "";
+  const msgBgColor = messageFromMe
+    ? "bg-green-500 text-white"
+    : "bg-blue-500 text-white";
   const formattedTime = formatTime(message.createdAt);
 
   return (
@@ -26,7 +28,7 @@ const Message = ({ message }) => {
         </div>
       </div>
 
-      <div className={`chat-bubble text-white ${msgBgColor}`}>
+      <div className={`chat-bubble ${msgBgColor}`}>
         {message.message}
       </div>
 
