@@ -3,8 +3,9 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 
+import { server, app } from "./socket/socket.js";
+
 dotenv.config();
-const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
@@ -28,7 +29,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoute);
 app.use("/api/users", userRoute);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log("Server is running at port: " + PORT);
 });
 
