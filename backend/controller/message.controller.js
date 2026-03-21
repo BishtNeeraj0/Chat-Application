@@ -1,25 +1,26 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
 
 export const sendMessage = async (req, res, next) => {
   try {
     const { message } = req.body;
-    const { id: receiverID } = req.params;
-    const senderID = req.user.id;
+    const { id: receiverId } = req.params;
+    const senderId = req.user.id;
 
     let conversation = await Conversation.findOne({
-      participants: { $all: [senderID, receiverID] },
+      participants: { $all: [senderId, receiverId] },
     });
 
     if (!conversation) {
       conversation = await Conversation.create({
-        participants: [senderID, receiverID],
+        participants: [senderId, receiverId],
       });
     }
 
     const newMessage = new Message({
-      sender: senderID,
-      receiver: receiverID,
+      sender: senderId,
+      receiver: receiverId,
       message,
     });
 
@@ -29,6 +30,11 @@ export const sendMessage = async (req, res, next) => {
 
     await Promise.all([conversation.save(), newMessage.save()]);
 
+    const receiverSocketId = getReceiverSocketId(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("newMessage", newMessage);
+    }
+
     res.status(201).json(newMessage);
   } catch (error) {
     next(error);
@@ -37,11 +43,11 @@ export const sendMessage = async (req, res, next) => {
 
 export const getMessage = async (req, res, next) => {
   try {
-    const { id: receiverID } = req.params;
-    const senderID = req.user.id;
+    const { id: receiverId } = req.params;
+    const senderId = req.user.id;
 
     const conversation = await Conversation.findOne({
-      participants: { $all: [senderID, receiverID] },
+      participants: { $all: [senderId, receiverId] },
     }).populate("messages");
 
     if (!conversation) {
