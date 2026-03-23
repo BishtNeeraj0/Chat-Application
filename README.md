@@ -32,25 +32,25 @@ A real-time chat application that enables seamless one-to-one communication with
 
 1. Clone the repository
    
-  git clone https://github.com/BishtNeeraj0/Chat-Application.git
+  - git clone https://github.com/BishtNeeraj0/Chat-Application.git
 
-  cd Chat-Application
+  - cd Chat-Application
 
 3. Setup Backend
    
-  cd backend
+  - cd backend
   
-  npm install
+  - npm install
   
-  npm run dev
+  - npm run dev
 
-5. Setup Frontend
+4. Setup Frontend
    
-  cd frontend
+  - cd frontend
   
-  npm install
+  - npm install
   
-  npm run dev
+  - npm run dev
 
 🔑 Environment Variables:
 
@@ -61,16 +61,17 @@ A real-time chat application that enables seamless one-to-one communication with
     - JWT_SECRET=your_secret_key
 
 📸 Screenshots:
-<img width="1919" height="939" alt="Screenshot 2026-03-23 144120" src="https://github.com/user-attachments/assets/10ee239b-d063-4d1a-a88b-5805006a6def" />
-<img width="1919" height="937" alt="Screenshot 2026-03-23 144052" src="https://github.com/user-attachments/assets/3ddec9ca-bcfa-47b5-a975-f11f7d4226ee" />
 <img width="1919" height="938" alt="Screenshot 2026-03-23 144031" src="https://github.com/user-attachments/assets/935b809a-029a-4fe8-bd8f-73f67890df21" />
 <img width="1919" height="939" alt="Screenshot 2026-03-23 142028" src="https://github.com/user-attachments/assets/9ba4c362-0248-417b-a93e-072ccb215dc7" />
+<img width="1919" height="937" alt="Screenshot 2026-03-23 144052" src="https://github.com/user-attachments/assets/3ddec9ca-bcfa-47b5-a975-f11f7d4226ee" />
+<img width="1919" height="939" alt="Screenshot 2026-03-23 144120" src="https://github.com/user-attachments/assets/10ee239b-d063-4d1a-a88b-5805006a6def" />
 
 📂 Project Structure:
 
   Chat-Application/
   
   │
+  
   ├── frontend/        # React frontend
   
   ├── backend/         # Express backend
