@@ -1,5 +1,3 @@
-import React from "react";
-import UserAvatar from "../../assets/user.png";
 import { useAuthContext } from "../../Context/AuthContext";
 import useConversation from "../../zustand/useConversation";
 import { formatTime } from "../../utils/formatTime";

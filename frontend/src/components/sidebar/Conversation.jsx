@@ -10,6 +10,7 @@ const Conversation = ({ conversation, lastIndex }) => {
   const { onlineUsers } = useSocketContext();
 
   const isOnline = onlineUsers.includes(conversation._id);
+  console.log(conversation)
 
   return (
     <>

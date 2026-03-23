@@ -17,7 +17,7 @@ export const signup = async (req, res, next) => {
   }
 
   const hashedPass = await bcrypt.hash(password, 10);
-  const pfp = `https://api.dicebear.com/9.x/personas/svg?seed=${username}&backgroundColor=random`;
+  const pfp = `https://api.dicebear.com/9.x/personas/png?seed=${username}`;
   const newUser = new User({
     username,
     email,
