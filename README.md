@@ -3,11 +3,17 @@ A real-time chat application that enables seamless one-to-one communication with
 
 🚀 Features:
   🔐 User Authentication (Signup/Login)
+  
   💬 Real-time messaging functionality
+  
   🟢 Online/Offline user status indicator
+  
   📩 Instant message delivery & updates
+  
   👤 User profile with avatar support
+  
   📱 Responsive UI for better user experience
+  
   🗂️ Conversation management
 
 🛠️ Tech Stack:
