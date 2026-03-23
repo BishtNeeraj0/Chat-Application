@@ -4,48 +4,61 @@ A real-time chat application that enables seamless one-to-one communication with
 
 🚀 Features:
 
-  🔐 User Authentication (Signup/Login)
-  💬 Real-time messaging functionality
-  🟢 Online/Offline user status indicator
-  📩 Instant message delivery & updates
-  👤 User profile with avatar support
-  📱 Responsive UI for better user experience
-  🗂️ Conversation management
+  - User Authentication (Signup/Login)
+  - Real-time messaging functionality
+  - Online/Offline user status indicator
+  - Instant message delivery & updates
+  - User profile with avatar support
+  - Responsive UI for better user experience
+  - Conversation management
 
 🛠️ Tech Stack:
 
   Frontend
   - React.js
   - Tailwind CSS / DaisyUI
+    
   Backend
   - Node.js
   - Express.js
+    
   Database
   - MongoDB
+    
   Real-time Communication
   - Socket.IO
 
 ⚙️ Installation & Setup:
 
 1. Clone the repository
+   
   git clone https://github.com/BishtNeeraj0/Chat-Application.git
+
   cd Chat-Application
 
-2. Setup Backend
+3. Setup Backend
+   
   cd backend
+  
   npm install
+  
   npm run dev
 
-3. Setup Frontend
+5. Setup Frontend
+   
   cd frontend
+  
   npm install
+  
   npm run dev
 
 🔑 Environment Variables:
+
   Create a .env file in the backend directory and add:
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_secret_key
+  
+    - PORT=5000
+    - MONGO_URI=your_mongodb_connection_string
+    - JWT_SECRET=your_secret_key
 
 📸 Screenshots:
 <img width="1919" height="939" alt="Screenshot 2026-03-23 144120" src="https://github.com/user-attachments/assets/10ee239b-d063-4d1a-a88b-5805006a6def" />
@@ -54,11 +67,16 @@ A real-time chat application that enables seamless one-to-one communication with
 <img width="1919" height="939" alt="Screenshot 2026-03-23 142028" src="https://github.com/user-attachments/assets/9ba4c362-0248-417b-a93e-072ccb215dc7" />
 
 📂 Project Structure:
+
   Chat-Application/
+  
   │
   ├── frontend/        # React frontend
+  
   ├── backend/         # Express backend
+  
   ├── socket/          # Socket.IO logic
+  
   └── README.md
 
 📌 Key Highlights:
