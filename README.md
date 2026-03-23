@@ -32,25 +32,25 @@ A real-time chat application that enables seamless one-to-one communication with
 
 1. Clone the repository
    
-  - git clone https://github.com/BishtNeeraj0/Chat-Application.git
+    - git clone https://github.com/BishtNeeraj0/Chat-Application.git
 
-  - cd Chat-Application
+    - cd Chat-Application
 
 3. Setup Backend
    
-  - cd backend
+    - cd backend
   
-  - npm install
+    - npm install
   
-  - npm run dev
+    - npm run dev
 
 4. Setup Frontend
    
-  - cd frontend
+    - cd frontend
   
-  - npm install
+    - npm install
   
-  - npm run dev
+    - npm run dev
 
 🔑 Environment Variables:
 
