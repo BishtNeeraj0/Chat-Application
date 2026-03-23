@@ -1,19 +1,15 @@
 💬 Chat Application
+
 A real-time chat application that enables seamless one-to-one communication with an intuitive UI and efficient backend handling. Built to demonstrate full-stack development skills including authentication, real-time messaging, and responsive design.
 
 🚀 Features:
+
   🔐 User Authentication (Signup/Login)
-  
   💬 Real-time messaging functionality
-  
   🟢 Online/Offline user status indicator
-  
   📩 Instant message delivery & updates
-  
   👤 User profile with avatar support
-  
   📱 Responsive UI for better user experience
-  
   🗂️ Conversation management
 
 🛠️ Tech Stack:
@@ -47,9 +43,9 @@ A real-time chat application that enables seamless one-to-one communication with
 
 🔑 Environment Variables:
   Create a .env file in the backend directory and add:
-  PORT=5000
-  MONGO_URI=your_mongodb_connection_string
-  JWT_SECRET=your_secret_key
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_secret_key
 
 📸 Screenshots:
 <img width="1919" height="939" alt="Screenshot 2026-03-23 144120" src="https://github.com/user-attachments/assets/10ee239b-d063-4d1a-a88b-5805006a6def" />
