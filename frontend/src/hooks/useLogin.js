@@ -34,8 +34,8 @@ const useLogin = () => {
 
       const data = await res.json();
 
-      if (data.error) {
-        throw new Error(data.error);
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
       }
 
       localStorage.setItem("user", JSON.stringify(data));
